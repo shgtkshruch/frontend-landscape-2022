@@ -5,7 +5,7 @@ theme: seriph
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://source.unsplash.com/collection/94734566/1920x1080
 # apply any windi css classes to the current slide
-class: 'text-center'
+class: "text-center"
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
 # show line numbers in code blocks
@@ -23,53 +23,20 @@ drawings:
 css: unocss
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
+# Frontend Lanscape 2022
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+2022年にあったフロントエンドの動きの中で、個人的に注目したもの、今後のフロントエンドの動向に影響しそうなものをピックアップして発表します。
+よろしくお願いします。
 -->
 
 ---
 
-# What is Slidev?
+# Self Introduction
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
+- 城内 栄剛
+- 2022 年 8 月入社
+- Xuan プロジェクト・フロントエンドエンジニア
 
 <style>
 h1 {
@@ -84,103 +51,116 @@ h1 {
 </style>
 
 <!--
-Here is another comment.
+簡単に自己紹介です。
+名前は城内と言います。
+2022年の8月にエス・エム・エスに入社しました。
+Xuan プロジェクトでフロントエンドエンジニアとして働いています。
 -->
 
 ---
 
-# Navigation
+# TOC
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+- Browser
+- Runtime
+- Framework
 
-### Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly![^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
+<!--
+目次です。
+ブラウザ、ランタイム、フレームワークという各トピックごとに、どんな動きがあったかをサクッと見ていきたいと思います。
+-->
 
 ---
 
-# Components
+# IE 11 のサポートが終了 👋
 
-<div grid="~ cols-2 gap-4">
-<div>
+- 2022 年 6 月 15 日に、IE 11 のサポートが終了
+- サポート対象のブラウザのベースラインが上がる
+- 新しい HTML・CSS・JavaScript の API を使用可能に
 
-You can use Vue components directly inside your slides.
+<img class="mt-5 mx-auto w-75%" src="/ie11.png" />
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+<!--
+2022年6月15日に、IE 11 のサポートが終了しました。
 
-```html
-<Counter :count="10" />
-```
+これでサポートするべきブラウザのベースラインが上がって、新しい仕様が使いやすい状況が出来つつあります。
+-->
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
+---
 
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
+# モダンブラウザの動き
 
-</div>
-<div>
+- モダンブラウザの間では、Interop 2022 を通じて互換性を担保して新機能を実装
+- Interop: Web ブラウザ(Chrome, Safari, Firefox)の相互運用性を高める取り組み
+- 今年実装された API
+  - `<dialog>`
+  - `<img loading="lazy">`
+  - `@layer`
 
-```html
-<Tweet id="1390115482657726468" />
-```
+<img class="w-35% absolute right-15 bottom-10" src="interop-2022.png">
 
-<Tweet id="1390115482657726468" scale="0.65" />
+<!--
+モダンブラウザの間では、Interop 2022 を通じて互換性を担保して新機能を実装が進みました。
+Interop は、Chrome・Safari・Firefoxなどの WEB ブラウザの開発者が取り組んでいるブラウザ間の相互運用性を高める取り組みです。
 
-</div>
-</div>
+実装されたものとしては、
+モーダルなどサブウィンドウを表示できる`dialog`要素。
+画像が ViewPort に入ってきたときに遅延読み込みされる`loading`属性。
+CSS にレイヤを追加できる`@layer`。
+-->
+
+---
+
+# Runtime
+
+## Node.js
+
+- 2022年4月に v18 がリリース
+- experimental で fetch をサポート
+
+## Deno
+
+- Rust で実装された TypeScript が動く JavaScript のランタイム
+- 2020 年に v1.0.0 がリリース
+- 今年は npm モジュールをサポート
+
+## Bun
+
+- Zig で実装された、パフォーマンス重視の JavaScript ランタイム
+- 2022 年 7 月に v0.1.1 がリリース
+
+<img class="absolute top-19 right-35 w-11%" src="node.png">
+<img class="absolute top-63 right-35 w-11%" src="deno.png">
+<img class="absolute top-106 right-32 w-13%" src="bun.png">
+
+<!--
+サーバーサイドの JavaScript ランタイムの Node.js は今年の4月にバージョン18がリリースされました。
+experimental ではありますが、fetch がサポートされました。
+これは WEB の API が WEB を超えていく一つのきっかけとして、大きな動きだったなと個人的には思っています。
+
+Deno は、Rust で実装された TypeScript が動作する JavaScript ランタイムです。
+2022年にバージョン1.0がリリースされてから、今年も活発に開発が進められていました。
+大きなものとしては、npm のモジュールのサポートが入りました。
+これまでは、Node.js 向けに作られた npm モジュールは Deno では動かなかったのですが、npm をサポートしたことで Node.js の npm の資産の多くを Deno でも利用することができるようになりました。
+
+また、今年ホットだったのは、2022年7月に発表されたBunです。
+Zig で実装された JavaScript ランタイムで、Node.js や Deno よりも高速に動作することを押しています。
+
+昨年からの動きの続きではありますが、JavaScript のランタイムの数が増えてきているなという印象があります。
+-->
+
+---
+
+# Edge Runtime
+
+## Cloudflare Workers
+
+- Cloudfale の CDN 上で動作する JavaScript ランタイム
+
+## Edge Runtime
+
+- Vercel の Edge で動作する JavaScript ランタイム
+- Next.js だけでなく Vue / Anguler など他のフレームワークへの対応も視野に入れている
 
 <!--
 Presenter note with **bold**, *italic*, and ~~striked~~ text.
@@ -191,213 +171,82 @@ Also, HTML elements are valid:
   <span>Right content</span>
 </div>
 -->
-
-
----
-class: px-20
 ---
 
-# Themes
+# WinterCG
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+- WEB ブラウザ以外の Runtime で、共通して使用できる API の標準化を目指したコミュニティグループ
+  - 今年の5月に Cloudflare のブログで発表された
+- W3C や WhatWG の仕様の尊重しつつ、Runtime 共通の仕様を定義する
 
-<div grid="~ cols-2 gap-2" m="-t-2">
+<img class="mt-5 mx-auto w-70%" src="winter-cg.png">
+<img class="mt-5 mx-auto w-70%" src="winter-cg-company.png">
 
-```yaml
----
-theme: default
----
-```
+<!--
+ランタイムが増えてくる中で気になるのが、あるランタイムで実装した JavaScript が他のランタイムでも動くのかということです。
 
-```yaml
----
-theme: seriph
----
-```
+例えば、サーバーで動作する Node.js や Deno、サーバレス環境で動く Cloudflare Workers では、それぞれ動作する環境が異なることから、共通した機能に対してそれぞれ独自の実装をしており、npm のモジュールはそのままでは Cloudfrare Workers では動作しません。
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
+こうした相互運用性の課題を解決するために、WinterCG というグループが今年の5月に立ち上がりました。
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
+Node.js／Deno／Bun／Cloudflare Workersなどのランタイムエンジン上で共通の仕様を定義することを目標にしたコミュニティグループです。
 
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
+将来的には、あるランタイム向けに書いたコードが別の環境でも動作する状態を目指しています。
+-->
 
 ---
 
-# LaTeX
+# Framework
 
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
+- React なら Next.js、Vue.js なら Nuxt.js のように、フレームワーク単位で採用される事例が増えた
+  - React / Vue.js をライブラリとして利用する話がなくなってきた
+- Svelte が出てきて以降は、あまり大きな動きがなく落ち着いている印象だったが...
+- 今年の夏頃からは、新しい観点に注目したフレームワークが登場してきた
+  - Astro
+  - Qwik
 
 ---
 
-# Diagrams
+# 観点
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+- Pre-rendering
+  - どこで HTML を生成するか
+  - ブラウザ
+    - SPA
+  - サーバー
+    - SSR / SSG / ISG
+- Hydration
+  - Pre-rendering した HTML にイベントハンドラを設定して、クライアンド上で Reactive に動くようにすること
+  - Hydration が完了しないと、画面に表示されていたとしても操作がでない（不気味の谷）
+  - 主要なフレームワークでは、ページ単位で Hydration が行われる
 
 ---
-src: ./pages/multiple-entries.md
-hide: false
----
+
+# 各 Framework の Hydration 方式
+
+## Next.js
+- ページ単位の Hydration
+- ページやバンドルサイズが大きくなると Hydration の処理が重くなる
+
+## Astro
+- 2022年8月にリリースされたフレームワーク
+- ページの部分単位の Hydration（Partial Hydration）
+- 画面に表示される要素を優先的に Hydration する
+
+## Qwik
+- builder.io が開発しているフレームワーク
+- Hydration をしない（Resumable)
+- ユーザーが操作を開始してから必要な JavaScript コードを読み込む
+
+<img class="absolute top-22 right-33 w-16%" src="nextjs.png">
+<img class="absolute top-60 right-40 w-10%" src="astro.png">
+<img class="absolute top-100 right-40 w-10%" src="qwik.jpeg">
 
 ---
-layout: center
-class: text-center
----
 
-# Learn More
-
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+# まとめ
+- JavaScript の実行環境が、ブラウザ・サーバーからエッジへと広がりを見せている
+- ブラウザ・サーバー・エッジの各レイヤで、機能の差別化と仕様の共通化が同時に起こっている 
+- パフォーマンスはフロントエンドにおいて重要な観点であり続ける
+  - ページに必要なリソースをどれだけ早く返すか（ネットワーク）
+  - ページがロードされてからどれだけ早く操作できるか（レンダリング）
