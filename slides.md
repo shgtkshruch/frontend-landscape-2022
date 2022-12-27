@@ -26,7 +26,7 @@ css: unocss
 # Frontend Lanscape 2022
 
 <!--
-2022年にあったフロントエンドの動きの中で、個人的に注目したもの、今後のフロントエンドの動向に影響しそうなものをピックアップして発表します。
+「Frontend Landscape 2022」というタイトルで発表させていただきます。
 よろしくお願いします。
 -->
 
@@ -38,30 +38,20 @@ css: unocss
 - 2022 年 8 月入社
 - Xuan プロジェクト・フロントエンドエンジニア
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
 <!--
 簡単に自己紹介です。
 名前は城内と言います。
-2022年の8月にエス・エム・エスに入社しました。
-Xuan プロジェクトでフロントエンドエンジニアとして働いています。
+今年の8月にエス・エム・エスに入社しました。
+今は、Xuan プロジェクトでフロントエンドエンジニアとして働いています。
 -->
 
 ---
 
 # 今日のトピック
 
-- 今年のフロントエンドの動きを、以下の 3 つの観点で紹介
+<br>
+
+#### 今年のフロントエンドの動きを、以下の 3 つの観点で紹介
 
 <br>
 
@@ -71,8 +61,7 @@ Xuan プロジェクトでフロントエンドエンジニアとして働いて
 
 <!--
 今日のトピックです。
-今年のフロントエンドの動きを、以下の3つの観点で紹介します。
-ブラウザ、JavaScript ランタイム、フロントエンドのフレームワークという各トピックごとに、今年どんな動きがあったかをサクッと見ていきたいと思います。
+今年のフロントエンドの動きを、 ブラウザ、JavaScript ランタイム、フレームワークという3つの観点で振り返ってきます。
 -->
 
 ---
@@ -86,16 +75,19 @@ Xuan プロジェクトでフロントエンドエンジニアとして働いて
 <img class="mt-5 mx-auto w-75%" src="/ie11.png" />
 
 <!--
-2022年6月15日に、IE 11 のサポートが終了しました。
+まずブラウザからです。
 
-これでサポートするべきブラウザのベースラインが上がって、新しい仕様が使いやすい状況が出来つつあります。
+ブラウザ界隈の大きな動きとしては、 今年の6月に IE 11 のサポートが終了しました。
+個人的には IE 対応で苦しめられてきた経験があるので、これはとても大きなニュースでした。
+
+これによって、サポートするべきブラウザのベースラインが上がって、新しい WEB の API が使いやすい状況が出来つつあります。
 -->
 
 ---
 
-# モダンブラウザの動き
 
-- モダンブラウザの間では、Interop 2022 を通じて互換性を担保して新機能を実装
+
+- モダンブラウザの間では、Interop 2022 を通じてブラウザ間の互換性を担保して新機能を実装
 - Interop: 2019 年に始まった、Web ブラウザ(Chrome, Safari, Firefox)の相互運用性を高める取り組み
 - 今年実装された API
   - `<dialog>`
@@ -105,8 +97,8 @@ Xuan プロジェクトでフロントエンドエンジニアとして働いて
 <img class="w-35% absolute right-15 bottom-10" src="interop-2022.png">
 
 <!--
-モダンブラウザの間では、Interop 2022 を通じてブラウザ間の互換性を担保した形で新機能の実装が進みました。
-Interop は、2017年から始まっている Chrome・Safari・Firefox などの WEB ブラウザの開発者が取り組んでいるブラウザ間の相互運用性を高める取り組みです。
+モダンブラウザの間では、Interop という取り組みを通じて新機能の実装が進みました。
+Interop は、Chrome・Safari・Firefox などのブラウザ間の相互運用性を高めつつ、新しい WEB の API を実装していく取り組みです。
 
 今年実装されたものとしては、
 モーダルなどサブウィンドウを表示できる`dialog`要素。
@@ -114,8 +106,27 @@ Interop は、2017年から始まっている Chrome・Safari・Firefox など�
 CSS にレイヤを追加できる`@layer`。
 などがありました。
 
-従来は JavaScript でおこなっていた処理も、HTML や CSS の API を利用して実装できるようになってきています。
-アプリケーションを作る際に必要となる UI やパフォーマンスの最適化に関する表現力が増えてきているなと思います。
+従来は JavaScript でおこなっていた処理や複雑なレイアウトも、HTML や CSS の API を利用して実装できることが増えています。
+-->
+
+---
+
+# Runtime
+## Node.js
+
+- 2022 年 4 月に v18 がリリース
+- experimental で fetch をサポート
+
+<img class="absolute top-19 right-35 w-11%" src="node.png">
+
+<!--
+次にランタイムの動きを見ていきます。
+
+サーバーサイドで JavaScript を実行するランタイムとしては、 Node.js が一番有名だと思いますが、最近では新しいランタイムが登場してきています。
+
+Node.js は、今年の4月にバージョン18がリリースされました。
+experimental ではありますが、WEB API の1つである fetch がサポートされました。
+これは WEB の API が WEB を超えていく一つのきっかけとして、大きな動きだったなと個人的には思っています。
 -->
 
 ---
@@ -131,7 +142,30 @@ CSS にレイヤを追加できる`@layer`。
 
 - Rust で実装された TypeScript が動く JavaScript のランタイム
 - 2020 年に v1.0.0 がリリース
-- 今年は npm モジュールをサポート
+- 2022 年 11月に npm モジュールをサポート
+
+<img class="absolute top-19 right-35 w-11%" src="node.png">
+<img class="absolute top-63 right-35 w-11%" src="deno.png">
+
+<!--
+Deno は、Rust で実装された JavaScript ランタイムです。
+今年の11月には npm のモジュールがサポートされて、Node.js の資産の多くを Deno でも利用することができるようになりました。
+-->
+
+---
+
+# Runtime
+
+## Node.js
+
+- 2022 年 4 月に v18 がリリース
+- experimental で fetch をサポート
+
+## Deno
+
+- Rust で実装された TypeScript が動く JavaScript のランタイム
+- 2020 年に v1.0.0 がリリース
+- 2022 年 11月に npm モジュールをサポート
 
 ## Bun
 
@@ -143,25 +177,8 @@ CSS にレイヤを追加できる`@layer`。
 <img class="absolute top-106 right-32 w-13%" src="bun.png">
 
 <!--
-主にサーバーサイドで JavaScript を実行するランタイム。
-Node.js が一番有名だと思いますが、それとは違った新しいランタイムが登場してきています。
-ここ数年の傾向ではありますが、今年も JavaScript のランタイムが盛り上がった年だと思います。
-
-Node.js は今年の4月にバージョン18がリリースされました。
-experimental ではありますが、WEB API の1つである fetch がサポートされました。
-これは WEB の API が WEB を超えていく一つのきっかけとして、大きな動きだったなと個人的には思っています。
-
-Deno は、Rust で実装された JavaScript ランタイムで、Node.js の作者のライアン・ダールが中心となって開発をしています。
-2022年にバージョン1.0がリリースされてから、今年も活発に開発が進められていました。
-大きなものとしては、npm のモジュールのサポートが入りました。
-これまでは、Node.js 向けに作られた npm モジュールは Deno では動かなかったのですが、npm をサポートしたことで Node.js の資産の多くを Deno でも利用することができるようになりました。
-
-また、今年ホットだったのは、2022年7月に発表された Bun です。
-Zig で実装された JavaScript ランタイムで、Node.js や Deno よりも高速に動作することを押しています。
-
-既存のものが進化したり、バージョン1が出たり、新しいランタイムが登場したり、なかなか盛り上がっているなと思っています。
-これだけランタイムが増えてくると、JavaScript が分断されていくのでは？と一瞬思うのですが、それをカバーする動きも出てきています。
-それについてはこの後のスライドでご紹介します。
+また、今年かなり注目されたのは、7月に発表された Bun です。
+Zig で実装された JavaScript ランタイムで、Node.js や Deno よりも高速に動作することを押していて、かなり話題になりました。
 -->
 
 ---
@@ -171,7 +188,31 @@ Zig で実装された JavaScript ランタイムで、Node.js や Deno より�
 ## Cloudflare Workers
 
 - Cloudflare の CDN 上で動作する JavaScript ランタイム
-- Cloudflare Workersのコードからシームレスに利用できるミドルウェア
+- Cloudflare Workers のコードから利用できるミドルウェア
+  - KV: KVS
+  - R2: S3 互換のオブジェクトストレージ
+  - D1: SQLite
+  
+<img class="absolute top-30 right-31 w-25%" src="cloudflare-workers.png">
+
+<!--
+サーバーサイドだけでなく、CDN のようなエッジで動くランタイムも出てきています。
+
+Cloudflare Workers は、CDN 上で動作するランタイムです。
+
+Service Worker のようにリクエストに任意の処理を挟むことができるので、CDN 本来のキャッシュの機能をプログラムを介して柔軟に利用できるようになっています。
+
+キーバリューストアや S3 互換のストレージ、今年の5月に発表した SQLite ベースのデータベースなど、様々なミドルウェアをリリースしています。
+-->
+
+---
+
+# Edge Runtime
+
+## Cloudflare Workers
+
+- Cloudflare の CDN 上で動作する JavaScript ランタイム
+- Cloudflare Workers のコードから利用できるミドルウェア
   - KV: KVS
   - R2: S3 互換のオブジェクトストレージ
   - D1: SQLite
@@ -179,22 +220,17 @@ Zig で実装された JavaScript ランタイムで、Node.js や Deno より�
 ## Edge Runtime
 
 - Vercel の Edge で動作する JavaScript ランタイム
-- Next.js だけでなく Vue / Anguler など他のフレームワークへの対応も視野に入れている
+- Next.js の SSR が動く（experimental）
+- Vue / Anguler など他のフレームワークへの対応も視野に入れている
+
+<img class="absolute top-30 right-31 w-25%" src="cloudflare-workers.png">
+<img class="absolute top-80 right-19 w-27%" src="edge-runtime.png">
 
 <!--
-サーバーサイドだけでなく、CDN のようなエッジで動くランタイムも出てきています。
-
-Cloudflare Workers は、Cloudflare の CDN 上で動作する JavaSceript ランタイムです。
-Service Worker のようにリクエストに任意の処理を挟むことができるので、リソースを加工してレスポンスを返したり、そのままオリジンに流したりリダイレクトするなど、CDN 本来のキャッシュの機能をプログラムを介して柔軟に利用できるようになっています。
-
-他にも キーバリューストアや S3 互換のストレージ、今年の5月に発表した SQLite ベースのデータベースなど、Cloudflare Workers から利用できる様々なミドルウェアをリリースしています。
-
-Next.js の開発元である Vercel も Edge で動作する JavaScript ランタイム、名前もそのままの「Edge Runtime」を今年の6月にリリースしました。
+Next.js の開発元である Vercel も、Edge で動作するランタイムを今年の6月にリリースしました。
 experimental ではありますが、Next.js の SSR が動作するようになっています。
-Next.js だけでなく、Vue や Anguler など他のフレームワークへの対応も視野に入れているようです。
-将来的には CDN 上で SSR をする未来が来るかもしれません。
+Vue や Anguler など他のフレームワークへの対応も視野に入れていて、 将来的には CDN 上で SSR をする未来が来るかもしれません。
 -->
-
 ---
 
 # WinterCG
@@ -207,17 +243,16 @@ Next.js だけでなく、Vue や Anguler など他のフレームワークへ�
 <img class="mt-5 mx-auto w-70%" src="winter-cg-company.png">
 
 <!--
-ランタイムが増えてくる中で気になるのが、あるランタイムで実装した JavaScript が他のランタイムでも動くのかということです。
+ランタイムが増えてくる中で課題になるのが、あるランタイムで実装したコードが他のランタイムでも動くのかということです。
 
-例えば、Node.js の npm モジュールを実装したコードが Cloudflare Workers 上でも動作すると移植する時に便利です。
-
-しかし現状では、サーバーで動作する Node.js や Deno、サーバレス環境で動く Cloudflare Workers では、それぞれ動作する環境が異なることから、共通した機能に対してそれぞれ独自の実装をしており、npm モジュールはそのままでは Cloudflare Workers では動作しません。
+例えば、Node.js のコードが Cloudflare Workers でも動くと便利ですが、現状では Node.js のコアの API を使っているコードだと動きません。
 
 こうした相互運用性の課題を解決するために、WinterCG というグループが今年の5月に立ち上がりました。
 
-Node.js／Deno／Bun／Cloudflare Workersなどのランタイムエンジン上で共通の仕様を定義することを目標にしたコミュニティグループです。
+Node.js・Deno・Cloudflare Workers など、様々なランタイム上で利用できる共通の仕様を定義することを目標にしたコミュニティグループです。
 
-将来的には、あるランタイム間の相互運用性を向上させて、あるランタイムで実装したコードが別の環境でも動作する状態を目指しています。
+新しいランタイムが登場して機能やパフォーマンスの差別化をする一方で、WinterCG のようにランタイムを横断して共通の仕様を作る動きも出てきていて、
+差別化と共通化が同時に進んでいるのが、今のランタイム界隈の動きの特徴だと思います。
 -->
 
 ---
@@ -225,20 +260,48 @@ Node.js／Deno／Bun／Cloudflare Workersなどのランタイムエンジン上
 # Framework
 
 - React なら Next.js、Vue.js なら Nuxt.js のように、フレームワーク単位で採用される事例が増えた
-  - React / Vue.js をライブラリとして利用する話がなくなってきた
+  - React / Vue.js を単独のライブラリとして利用する話が少なくなってきた
 - Svelte が出てきて以降は、あまり大きな動きがなく落ち着いている印象だったが...
 - 今年の夏頃からは、新しい観点に注目したフレームワークが登場してきた
   - Astro
   - Qwik
+
+<!--
+最後にフレームワークです。
+
+近年の傾向としては、React なら Next、Vue なら Nuxt のように、フレームワーク単位で採用される事例が増えてきたなと思います。
+
+Svelte が出てきて以降はあまり大きな動きがなく落ち着いていたのですが、今年の夏頃からは新しい観点に注目したフレームワークが登場してきました。
+Astro や Qwik というものなのですが、これらのフレームワークがどのような背景から出てきたかを見ると、今のフロントエンドのフレームワークの流れが見えてくるので簡単に紹介します。
+-->
 
 ---
 
 # 観点
 
 - Pre-rendering
-  - どこで HTML を生成するか
+  - どこでページを生成するか
   - ブラウザ
-    - SPA
+    - CSR(SPA)
+  - サーバー
+    - SSR / SSG / ISG
+
+<!--
+フロントエンドでフレームワークを採用する観点の一つとしては、Pre-rendering というものがあります。
+パフォーマンスや UX を最適化するために「どこでページを生成するか」ということなのですが、
+ブラウザで生成するなら CSR、サーバーサイドで生成するなら SSR などの手法があります。
+
+Next が便利なのは、ページ単位で Pre-rendering の手法を変えられるところで、あるページは CSR、別のページは SSR といったようにページの特性に合わせてレンダリング方法を選択できます。
+-->
+
+---
+
+# 観点
+
+- Pre-rendering
+  - どこでページを生成するか
+  - ブラウザ
+    - CSR(SPA)
   - サーバー
     - SSR / SSG / ISG
 - Hydration
@@ -246,19 +309,44 @@ Node.js／Deno／Bun／Cloudflare Workersなどのランタイムエンジン上
   - Hydration が完了しないと、画面に表示されていたとしても操作がでない（不気味の谷）
   - 主要なフレームワークでは、ページ単位で Hydration が行われる
 
+<!--
+最近のフレームワークで注目されているのは、Pre-rendering の後に行われる Hydration という処理です。
+Hydration は、Pre-rendering した HTML にイベントハンドラを設定して、クライアント上でリアクティブに動くようにする処理のことです。
+
+Hydration が完了しないと、画面に UI が表示されていたとしても操作ができない状態になります。
+例えば、ボタンが画面に表示されていても、クリックしたら何も反応しない、という状態が発生することになります。
+
+Next など主要なフレームワークでは、ページ単位で Hydration が行われるので、ページサイズが大きくなると Hydration が重くなるというのが課題になっていました。
+-->
+
+
 ---
 
-# 各 Framework の Hydration 方式
-
-## Next.js
-
-- ページ単位の Hydration
-- ページやバンドルサイズが大きくなると Hydration の処理が重くなる
+# 新しい Framework の Hydration 戦略
 
 ## Astro
 
 - 2022 年 8 月にリリースされたフレームワーク
-- ページの部分単位の Hydration（Partial Hydration）
+- ページのパーツ単位の Hydration（Partial Hydration）
+- 画面に表示される要素を優先的に Hydration する
+
+<img class="absolute top-30 right-40 w-10%" src="astro.png">
+
+<!--
+この課題を解決する流れの中で、新しいフレームワークが出てきたのが2022年の特徴だと思います。
+
+今年の8月にリリースされた Astro は、ページのパーツ単位で Hydration ができるようになっています。
+Hydration する優先順位を設定できるので、ページ上部のパーツから Hydration して、ページ下部のパーツは後から Hydration する、といったことができるようになっています。
+-->
+
+---
+
+# 新しい Framework の Hydration 戦略
+
+## Astro
+
+- 2022 年 8 月にリリースされたフレームワーク
+- ページのパーツ単位の Hydration（Partial Hydration）
 - 画面に表示される要素を優先的に Hydration する
 
 ## Qwik
@@ -267,16 +355,41 @@ Node.js／Deno／Bun／Cloudflare Workersなどのランタイムエンジン上
 - Hydration をしない（Resumable)
 - ユーザーが操作を開始してから必要な JavaScript コードを読み込む
 
-<img class="absolute top-22 right-33 w-16%" src="nextjs.png">
-<img class="absolute top-60 right-40 w-10%" src="astro.png">
-<img class="absolute top-100 right-40 w-10%" src="qwik.jpeg">
+<img class="absolute top-30 right-40 w-10%" src="astro.png">
+<img class="absolute top-70 right-40 w-10%" src="qwik.jpeg">
+
+<!--
+Qwik というフレームワークはもっとラディカルで、Hydration 自体を実行しないという思想で設計されています。
+ユーザーが操作を開始してから必要な JavaScript コードを読み込んで、遅延 Hydration をするような方式をとっています。
+
+フロントエンドのフレームワークでは、Next や Nuxt がまだまだ主流ですが、それらのパフォーマンス上の課題を解決するような新しいフレームワークが出てきつつあるのが今年の動きかなと思います。
+-->
 
 ---
 
 # まとめ
 
+## Browser
+- IE 11 が引退して、モダンブラウザが開発のベースラインになった
+- ブラウザ新しい WEB API の実装が進んだ
+
+## Runtime
 - JavaScript の実行環境が、ブラウザ・サーバーからエッジへと広がりを見せている
-- ブラウザ・サーバー・エッジの各レイヤで、機能の差別化と仕様の共通化が同時に起こっている
-- パフォーマンスはフロントエンドにおいて重要な観点であり続ける
-  - ページに必要なリソースをどれだけ早く返すか（ネットワーク）
-  - ページがロードされてからどれだけ早く操作できるか（レンダリング）
+- 各ランタイムの間で、機能の差別化と仕様の共通化が同時に起こっている
+
+## Framework
+- Next.js / Nuxt.js がまだまだ主流
+- 後発のフレームワークは Hydration の課題を解決しにきている
+- エッジで動作するフレームワークも登場しており、よりユーザーに近い場所で Pre-rendering 可能に
+
+<!--
+まとめです。
+
+ブラウザでは、IE 11 が引退して、モダンブラウザの間では新しい WEB API の実装が進みました。
+
+Runtime では、JavaScript の実行環境が、ブラウザやサーバーからエッジへと広がりつつあります。
+各ランタイムの間では、機能の差別化と仕様の共通化が同時に起こっています。
+
+フレームワークでは、Next / Nutx がまだまだ主流ではありますが、後発のフレームワークは Hydration の課題を解決してパフォーマンスの更なる向上を目指しています。
+エッジで動作するフレームワークも登場しており、Pre-rendering する場所もサーバーからエッジに広がる可能性がある。
+-->
